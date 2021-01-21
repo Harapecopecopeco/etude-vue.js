@@ -1,20 +1,10 @@
-<!doctype html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-
-<script src="vue.js">
-</script>
+<script src="vue.js"></script>
 
 <div id="app">
-    <p>{{message}}</p>
-    <button v-on:click="reverseMessage">メッセージ反転</button>
+    <h1>{{message}}</h1>
+    <h2>{{counter}}</h2>
+    <button @click="counter +=1" >+1</button>
+    <p>{{LessThanThree}}</p>
 </div>
 
 <script>
@@ -22,17 +12,14 @@
         {
             el: "#app",
             data: {
-                message: 'HelloWorld!'
+                counter:0,
+                message: "こんにちは"
             },
-            methods: {
-                reverseMessage: function () {
-                    this.message = this.message.split('').reverse().join('')
+            computed:{
+                LessThanThree:function (){
+                    return this.counter > 3 ? 'over 3':"under 3"
                 }
             }
-
-
-        });
+        }
+    )
 </script>
-
-</body>
-</html>
